@@ -8,11 +8,11 @@ import Empty from "@/components/ui/Empty";
 import { taskService } from "@/services/api/taskService";
 
 const TaskList = ({ 
-  categoryId = "all", 
-  searchQuery = "", 
+  categoryId = "all",
+  searchQuery = "",
   filters = {},
   onTaskUpdate,
-  onEdit 
+  onEdit
 }) => {
   const [tasks, setTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
