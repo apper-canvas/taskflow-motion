@@ -63,8 +63,16 @@ const Header = ({ onMenuClick, title = "All Tasks" }) => {
               })}
             </div>
             
-            <Button variant="ghost" size="sm" className="p-2">
+<Button variant="ghost" size="sm" className="p-2">
               <ApperIcon name="Settings" size={20} />
+            </Button>
+            <Button variant="ghost" size="sm" className="p-2" onClick={() => {
+              import("@/layouts/Root").then(({ useAuth }) => {
+                const { logout } = useAuth();
+                logout();
+              });
+            }}>
+              <ApperIcon name="LogOut" size={20} />
             </Button>
           </div>
         </div>
