@@ -1,7 +1,7 @@
-import { getApperClient } from "@/services/apperClient";
 import { isFuture, isPast, isToday } from "date-fns";
 import { toast } from "react-toastify";
 import React from "react";
+import { getApperClient } from "@/services/apperClient";
 
 export const taskService = {
   async getAll() {
@@ -429,9 +429,6 @@ export const taskService = {
         completedAt: task.completedAt_c
       })) || [];
 
-    } catch (error) {
-      console.error("Error searching tasks:", error?.response?.data?.message || error);
-      return [];
 } catch (error) {
       console.error("Error searching tasks:", error?.response?.data?.message || error);
       return [];

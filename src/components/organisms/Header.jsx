@@ -2,8 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
+import { useAuth } from "@/layouts/Root";
 
 const Header = ({ onMenuClick, title = "All Tasks" }) => {
+  const { logout } = useAuth();
   const [currentTime, setCurrentTime] = useState(new Date());
   
   // Update time every minute
@@ -66,12 +68,7 @@ const Header = ({ onMenuClick, title = "All Tasks" }) => {
 <Button variant="ghost" size="sm" className="p-2">
               <ApperIcon name="Settings" size={20} />
             </Button>
-            <Button variant="ghost" size="sm" className="p-2" onClick={() => {
-              import("@/layouts/Root").then(({ useAuth }) => {
-                const { logout } = useAuth();
-                logout();
-              });
-            }}>
+<Button variant="ghost" size="sm" className="p-2" onClick={logout}>
               <ApperIcon name="LogOut" size={20} />
             </Button>
           </div>
